@@ -1,0 +1,28 @@
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: RRHH
+    ports:
+      - "3306:3306"
+    networks:
+      - springboot-network
+
+  springboot-app:
+    image: app
+    container_name: springboot-app
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/RRHH?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=true
+    ports:
+      - "8080:8080"
+    networks:
+      - springboot-network
+
+networks:
+  springboot-network:
+    driver: bridge
