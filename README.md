@@ -1,3 +1,8 @@
+La aplicación al estar pensada para empresa, no tiene un formulario de registro, por lo que para generar un usuario se deberá crear a Trávez de los endpoints 
+de la collection de postman
+
+En el application properties del backend esta el siguente comentario:
+
 //Version localhost
     //spring.datasource.url=jdbc:mysql://localhost:3306/RRHH?createDatabaseIfNotExist=true&useSSL=true
     //spring.datasource.username=root
